@@ -1,15 +1,13 @@
 // Prototypal pattern
-function createProject(name,id,noOfProjects){
-    let project = Object.create(projectMethods);
+function CreateProject(name,id,noOfProjects){
     this.name = name;
     this.id = id;
     this.noOfProjects= noOfProjects;
-        return project;
 }
 
 let projectMethods = {
     getProjects(){
-        return this.noOfProjects = noOfProjects;
+        return this.noOfProjects;
     },
     changeName(newName){
         return this.name = newName;
@@ -24,9 +22,9 @@ let projectMethods = {
     },
 }
 // Pseudoclassical Pattern
-   createProject.prototype ={
+   CreateProject.prototype ={
     getProjects :function(){
-        return this.noOfProjects = noOfProjects;
+        return this.noOfProjects;
     },
     changeName :function(newName){
         return this.name = newName;
@@ -49,7 +47,7 @@ class Projects{
         this.noOfProjects= noOfProjects;
     }
     getProjects(){
-        return this.noOfProjects = noOfProjects;
+        return this.noOfProjects;
     }
     changeName(newName){
         return this.name = newName;
@@ -65,11 +63,11 @@ class Projects{
 }
 
 // Creating two objects
-let firstProject = new Projects(
+let firstProject = new CreateProject(
     ['kdjgje', 'jedhgit', 'deghekf', 'piehgt'],
     [1,2,3,4],4
   );
-  let secondProject = new Projects(
+  let secondProject = new CreateProject(
     ['ehdigjt', 'oejgie', 'nehfke', 'qwfbej'],
     [1,2,3,4],4
   );
