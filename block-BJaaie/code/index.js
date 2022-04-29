@@ -1,9 +1,7 @@
 // Pseudoclassical Pattern
 function CreateAnimal(location,numberOfLegs){
-    let animal = {};
-    animal.location = location;
-    animal.numberOfLegs = numberOfLegs;
-
+    this.location = location;
+    this.numberOfLegs = numberOfLegs;
 }
 
     CreateAnimal.prototype  = {
@@ -22,10 +20,9 @@ function CreateAnimal(location,numberOfLegs){
 
 
 function CreateDog(location,numberOfLegs,name,color){
-    let dog = {}
-    CreateAnimal.call(this,[location,numberOfLegs]);
-    dog.name = name;
-    dog.color = color;
+    CreateAnimal.call(this,location,numberOfLegs);
+    this.name = name;
+    this.color = color;
 }
 
     CreateDog.prototype = {
@@ -48,10 +45,9 @@ function CreateDog(location,numberOfLegs,name,color){
 Object.setPrototypeOf(CreateDog.prototype,CreateAnimal.prototype);
 
 function CreateCat(location,numberOfLegs,name,colorOfEyes){
-    let cat = {};
-    CreateAnimal.call(this,[location,numberOfLegs]);
-    cat.name = name;
-    cat.colorOfEyes = colorOfEyes;
+    CreateAnimal.call(this,location,numberOfLegs);
+    this.name = name;
+    this.colorOfEyes = colorOfEyes;
 }
 
     CreateCat.prototype = {
@@ -73,9 +69,60 @@ function CreateCat(location,numberOfLegs,name,colorOfEyes){
 
 Object.setPrototypeOf(CreateCat.prototype,CreateAnimal.prototype);
 
-let animal2 = new CreateAnimal("Spain",4);
-let dog2 = new CreateDog("Mumbai",4,"Tom","White");
-let cat2 = new CreateCat("Pune",4,"cattie","Black");
+//Class Pattern
+class Animal{
+    constructor(location,numberOfLegs){
+        this.location = location;
+        this.numberOfLegs = numberOfLegs;
+    }
+    eat(){
+        console.log("I live in ${location} and I can eat");
+    }
+    changeLocation(newLocation){
+        this.location = newLocation;
+    }
+    summary(){
+        return `I live in ${location} and I have ${numberOfLegs}`;
+    }
+}
+ 
+class Dog extends CreateAnimal{
+    constructor(location,numberOfLegs,name,color){
+        super(location,numberOfLegs);
+        this.name = name;
+        this.color = color;
+    }
+    eat(){
+        console.log("I live in ${location} and I can eat");
+    }
+    changeLocation(newLocation){
+        this.location = newLocation;
+    }
+    summary(){
+        return `I live in ${location} and I have ${numberOfLegs}`;
+    }
+}
+
+class Cat extends CreateAnimal{
+    constructor(location,numberOfLegs,name,colorOfEyes){
+        super(location,numberOfLegs);
+        this.name = name;
+        this.colorOfEyes = colorOfEyes;
+    }
+    eat(){
+        console.log("I live in ${location} and I can eat");
+    }
+    changeLocation(newLocation){
+        this.location = newLocation;
+    }
+    summary(){
+        return `I live in ${location} and I have ${numberOfLegs}`;
+    }
+}
+
+let animal2 = new Animal("Spain",4);
+let dog2 = new Dog("Mumbai",4,"Tom","White");
+let cat2 = new Cat("Pune",4,"cattie","Black");
 
 console.group(animal2.location);
 console.log(animal2.numberOfLegs);
