@@ -3,7 +3,16 @@
 `myMap` will behave similar to how the `Array.map` works. To test the implementation use the code below.
 */
 
-// myMap function goes here
+ numbers.prototype = {
+ myMap : function(array,cb){
+  let final = [];
+  for(let i=0; i<arr.length; i++){
+    const element = arr[i];
+    final.push(cb(element));
+  }
+  return final;
+}
+}
 
 // Test the myMap function you created above
 
@@ -27,7 +36,17 @@ console.log(capitalWords); // it should be 'Quick Brown Fox Jumped Over A Lazy D
 2. Add a method named `myFilter` to Array.prototype. myFilter should behave similar to Array.filter.
 After adding the function test it using the code below.
 */
-
+numbers.prototype = {
+  myMap : function(array,cb){
+   let final = [];
+   for(let element of array){
+     if(cb(element)){
+      final.push(element);
+     }
+   }
+   return final;
+ }
+ }
 // You code goes here
 
 let even = numbers.myFilter(function (num) {
@@ -62,7 +81,15 @@ console.log(words.shuffle());
 new array and it should only contain unique elements in the array.
 Unique means no element should come multiple times.
 */
-
+num.prototype = {
+  unique : function(...num){
+   let final = [];
+   for(let i=0; i<num.length; i++){
+     final = final.filter(elm => final.includes(elm));
+   }
+   return final;
+ }
+ }
 // You code goes here
 
 // Test to check the shuffle method (It will return different output every time you call)
@@ -76,7 +103,15 @@ console.log(strings.unique()); // ['h', 'e', 'l', 'o', 'w', 'r', 'd']
 5. Add a method named `intersection` to Array.prototype. The method intersection will accept an array and returns a new
 array that will contain only element that is common in both the array.
 */
-
+num.prototype = {
+  unique : function(...num){
+   let final = [];
+   for(let i=0; i<num.length; i++){
+     final = final.filter(elm => final.includes(elm));
+   }
+   return final;
+ }
+ }
 // You code goes here
 
 // Test to check the shuffle method (It will return different output every time you call)
