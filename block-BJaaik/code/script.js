@@ -8,10 +8,10 @@ class Person {
         return `I am ${this.name} and I like eating`;
     }
     sleep(){
-        return `I am ${this.name} and I like sleeping`;
+        return `I am ${this.name} and I like Sleeping`;
     }
     walk(){
-        return `I am ${this.name} and I like walking`;
+        return `I am ${this.name} and I like Walking`;
     }
 }
 
