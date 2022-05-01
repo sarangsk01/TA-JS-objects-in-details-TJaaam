@@ -30,7 +30,7 @@ class Stack {
         }
     }
     displayStack(){
-        return `${this.stack}`;
+        return '${this.stack}';
     }
     get length(){
         return this.stack;
